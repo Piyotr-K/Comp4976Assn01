@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextProjectName LmycDataLib -StartUpProjectName LmycDataLib -ContextTypeName LmycDataLib.ApplicationDbContext -MigrationsDirectory Migrations\LmycMigrations
+
+Add-Migration -ConfigurationTypeName LmycWebSite.Migrations.LmycMigrations.Configuration "Updated Boat Model Foreign Key"
+
+Update-Database -ConfigurationTypeName LmycWebSite.Migrations.LmycMigrations.Configuration
