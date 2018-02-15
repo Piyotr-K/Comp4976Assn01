@@ -199,6 +199,10 @@
     <Compile Include="Migrations\LmycMigrations\201802081856468_InitialCreate.Designer.cs">
       <DependentUpon>201802081856468_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\LmycMigrations\201802122245384_Updated User Model.cs" />
+    <Compile Include="Migrations\LmycMigrations\201802122245384_Updated User Model.Designer.cs">
+      <DependentUpon>201802122245384_Updated User Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LmycMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -206,6 +210,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Lmyc.mdf" />
+    <Content Include="App_Data\Lmyc_log.ldf">
+      <DependentUpon>Lmyc.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Docs\Migration.txt" />
@@ -264,9 +272,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -289,6 +295,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\LmycMigrations\201802081856468_InitialCreate.resx">
       <DependentUpon>201802081856468_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\LmycMigrations\201802122245384_Updated User Model.resx">
+      <DependentUpon>201802122245384_Updated User Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
