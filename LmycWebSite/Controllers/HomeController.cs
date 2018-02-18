@@ -10,10 +10,13 @@ namespace LmycWebSite.Controllers
     {
         public ActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("AnonymousIndex", "Home");
+            }
             return View();
         }
-
-        [Authorize(Roles ="Admin")]
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -21,8 +24,26 @@ namespace LmycWebSite.Controllers
             return View();
         }
 
+        public ActionResult AnonymousIndex()
+        {
+            ViewBag.Message = "Welcome stranger.";
+
+            return View();
+        }
+
+        public ActionResult AnonymousContact()
+        {
+            ViewBag.Message = "Find Us";
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("AnonymousContact", "Home");
+            }
             ViewBag.Message = "Your contact page.";
 
             return View();

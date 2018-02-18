@@ -12,10 +12,10 @@ namespace LmycWebSite
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            createAdmin();
+            createAdminandRoles();
         }
 
-        private void createAdmin()
+        private void createAdminandRoles()
         {
             ApplicationDbContext context = new ApplicationDbContext();
 
@@ -44,6 +44,13 @@ namespace LmycWebSite
                 {
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
                 }
+            }
+
+            if (!roleManager.RoleExists("Member"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Member";
+                roleManager.Create(role);
             }
         }
     }
