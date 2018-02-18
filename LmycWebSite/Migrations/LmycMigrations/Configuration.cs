@@ -4,6 +4,7 @@ namespace LmycWebSite.Migrations.LmycMigrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using LmycWebSite.Data;
 
     internal sealed class Configuration : DbMigrationsConfiguration<LmycDataLib.ApplicationDbContext>
     {
@@ -27,6 +28,10 @@ namespace LmycWebSite.Migrations.LmycMigrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Boats.AddOrUpdate(
+                b => b.BoatId, DummyData.getBoats().ToArray());
+            context.SaveChanges();
         }
     }
 }

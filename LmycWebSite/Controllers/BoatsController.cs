@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LmycDataLib;
 using LmycDataLib.BoatModel;
+using LmycWebSite.CustomAttribute;
 
 namespace LmycWebSite.Controllers
 {
@@ -37,7 +38,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Create
-        [Authorize(Roles = "Admin")]
+        [Security(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -61,6 +62,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Edit/5
+        [Security(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,6 +94,7 @@ namespace LmycWebSite.Controllers
         }
 
         // GET: Boats/Delete/5
+        [Security(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
