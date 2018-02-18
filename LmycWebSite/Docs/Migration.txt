@@ -1,5 +1,5 @@
-﻿Enable-Migrations -ContextProjectName LmycDataLib -StartUpProjectName LmycDataLib -ContextTypeName LmycDataLib.ApplicationDbContext -MigrationsDirectory Migrations\LmycMigrations
+﻿Enable-Migrations -ContextProjectName LmycDataLib -ContextTypeName LmycDataLib.ApplicationDbContext -MigrationsDirectory Migrations\LmycMigrations
 
-Add-Migration -ConfigurationTypeName LmycWebSite.Migrations.LmycMigrations.Configuration "Updated User Model"
+Add-Migration -ConfigurationTypeName LmycWebSite.Migrations.LmycMigrations.Configuration "Update Online Database"
 
 Update-Database -ConfigurationTypeName LmycWebSite.Migrations.LmycMigrations.Configuration
