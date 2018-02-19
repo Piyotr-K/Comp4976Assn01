@@ -205,7 +205,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="CustomAttribute\SecurityAttribute.cs" />
     <Compile Include="Data\DummyData.cs" />
     <Compile Include="Global.asax.cs">
@@ -299,6 +298,7 @@
     <Content Include="Views\Home\AnonymousIndex.cshtml" />
     <Content Include="Views\Home\AnonymousContact.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -342,7 +342,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61354</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

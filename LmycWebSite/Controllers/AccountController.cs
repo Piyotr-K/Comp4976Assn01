@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LmycWebSite.Models;
 using LmycDataLib;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LmycWebSite.Controllers
 {
@@ -18,9 +19,11 @@ namespace LmycWebSite.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext context;
 
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )

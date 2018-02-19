@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LmycDataLib;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,13 +11,30 @@ namespace LmycWebSite.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext context;
+
+        public HomeController()
+        {
+            context = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("AnonymousIndex", "Home");
             }
-            return View();
+            else
+            {
+                if (isAdminUser())
+                {
+                    return RedirectToAction("AdminIndex");
+                }
+                else
+                {
+                    return View();
+                }
+            }
         }
         
         public ActionResult About()
@@ -27,6 +47,13 @@ namespace LmycWebSite.Controllers
         public ActionResult AnonymousIndex()
         {
             ViewBag.Message = "Welcome stranger.";
+
+            return View();
+        }
+
+        public ActionResult AdminIndex()
+        {
+            ViewBag.Message = "Welcome admin.";
 
             return View();
         }
@@ -47,6 +74,25 @@ namespace LmycWebSite.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public Boolean isAdminUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var s = UserManager.GetRoles(user.GetUserId());
+                if (s[0].ToString() == "Admin")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }
