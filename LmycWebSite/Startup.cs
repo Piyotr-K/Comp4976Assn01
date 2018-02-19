@@ -52,6 +52,20 @@ namespace LmycWebSite
                 role.Name = "Member";
                 roleManager.Create(role);
             }
+
+            var user1 = new ApplicationUser();
+            user1.UserName = "m";
+            user1.Email = "m@m.m";
+
+            string userPWD1 = "P@$$w0rd";
+
+            var chkUser1 = UserManager.Create(user1, userPWD1);
+
+            // add default User to Role Member
+            if (chkUser1.Succeeded)
+            {
+                var result1 = UserManager.AddToRole(user1.Id, "Member");
+            }
         }
     }
 }
