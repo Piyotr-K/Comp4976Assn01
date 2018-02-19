@@ -28,7 +28,7 @@ namespace LmycWebSite.Controllers
             {
                 if (isAdminUser())
                 {
-                    return RedirectToAction("AdminIndex");
+                    return View();
                 }
                 else
                 {
